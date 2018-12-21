@@ -23,9 +23,17 @@ function updateMovie(id, movie) {
 		.returning('*');
 }
 
+function deleteMovie(id) {
+	return knex('movies')
+		.del()
+		.where({ id: parseInt(id) })
+		.returning('*');
+}
+
 module.exports = {
 	getAllMovies,
 	getSingleMovie,
 	addMovie,
 	updateMovie,
+	deleteMovie,
 };
